@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -31,8 +25,8 @@ def calculate():
     return jsonify({"operation": operation, "result": result})
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    import os
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 10000)))
 
 # In[ ]:
 
